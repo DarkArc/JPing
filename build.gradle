@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'ninja.haxing.jping.Main'
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': mainClassName
+        )
+    }
+}
