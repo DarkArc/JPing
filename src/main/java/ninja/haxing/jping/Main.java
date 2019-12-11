@@ -3,7 +3,9 @@ package ninja.haxing.jping;
 import ninja.haxing.jping.connection.TestResult;
 import ninja.haxing.jping.connection.Tester;
 
+import java.net.URI;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -19,7 +21,7 @@ public class Main {
 
         Tester connectionTester = new Tester(targetHostname);
 
-        Path failureLogPath = Path.of(args[1]);
+        Path failureLogPath = Paths.get(args[1]);
         System.out.println("Writing failures to: " + failureLogPath.toAbsolutePath().toString());
 
         FailureLog log = new FailureLog(failureLogPath);

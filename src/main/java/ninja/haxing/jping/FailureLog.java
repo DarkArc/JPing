@@ -15,15 +15,15 @@ public class FailureLog {
         this.logFile = logFile;
     }
 
-    private String createLogString(TestResult result) {
-        return "[" + LocalDateTime.now().toString() + "] " + result.name() + "\n";
+    private byte[] createLogString(TestResult result) {
+        return new String("[" + LocalDateTime.now().toString() + "] " + result.name() + "\n").getBytes();
     }
 
     public void writeFailure(TestResult result) {
         assert result != TestResult.SUCCESS;
 
         try {
-            Files.writeString(logFile, createLogString(result), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            Files.write(logFile, createLogString(result), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
         }
