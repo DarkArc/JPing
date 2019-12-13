@@ -44,9 +44,9 @@ public class Main {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
+                LocalDateTime failureTime = LocalDateTime.now();
                 ConnectionResult result = connectionTester.test();
                 if (result != ConnectionResult.SUCCESS) {
-                    LocalDateTime failureTime = LocalDateTime.now();
                     log.writeFailure(failureTime, result);
                     ConnectionResult statusPageResult = statusPageFetcher.fetch(failureTime);
                     if (statusPageResult != ConnectionResult.SUCCESS) {
