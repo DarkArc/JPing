@@ -13,5 +13,5 @@ To build simply use:
 Then run with:
 
 ```
-java -jar build/libs/JPing.jar example.com failure_log.txt
+java -jar build/libs/JPing.jar example.com  http://192.168.100.1/cgi-bin/status_cgi
 ```
